@@ -22,8 +22,8 @@ class Detail_Widget extends StatelessWidget {
                               width: 210,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
-                                child: Image.network(
-                                    "https://i.pinimg.com/564x/0c/61/2f/0c612fd62b2669668d4b8ac190d137a7.jpg"),
+                                child: Image.asset(
+                                    "assets/images/dinner.jpg"),
                               ),
                             ),
                           ],
@@ -62,8 +62,8 @@ class Detail_Widget extends StatelessWidget {
                               width: 212,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
-                                child: Image.network(
-                                    "https://i.pinimg.com/564x/10/66/92/1066924b56aa05f8f47e9a047815197a.jpg"),
+                                child: Image.asset(
+                                    "assets/images/bunner.jpg"),
                               ),
                             ),
                           ],

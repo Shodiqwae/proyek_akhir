@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:proyek_akhir/model/restraurant_place.dart';
 import 'package:proyek_akhir/widget/Near.dart';
@@ -100,172 +101,81 @@ class HomePage extends StatelessWidget {
               children: [
                 Container(
                   margin: EdgeInsets.only(top: 20, left: 20),
-                  child: Text("Categories",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                  ),),
+                  child: Text(
+                    "Categories",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 )
               ],
             ),
-            SizedBox(height: 10,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  children: [
-                    Container(
-                      width: 80,
-                      height: 80,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                      color: Color.fromARGB(255, 255, 255, 255),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color.fromARGB(255, 189, 186, 186),
-                            spreadRadius: 2,
-                            blurRadius: 7,
-                            offset: Offset(0, 1)
-                          )
-                        ]
-                      ),
+            SizedBox(
+              height: 10,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  children: List.generate(
+                    4,
+                    (index) => Container(
+                      margin: EdgeInsets.symmetric(horizontal: 5),
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.local_pizza,size: 50,color: Color.fromARGB(255, 24, 26, 120),)
-                            ],
+                          Container(
+                            width: 80,
+                            height: 80,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Color.fromARGB(255, 255, 255, 255),
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Color.fromARGB(255, 189, 186, 186),
+                                      spreadRadius: 2,
+                                      blurRadius: 7,
+                                      offset: Offset(0, 1))
+                                ]),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  index == 0
+                                      ? Icons.local_pizza
+                                      : index == 1
+                                          ? Icons.fastfood_rounded
+                                          : index == 2
+                                              ? Icons.eco
+                                              : Icons.apple,
+                                  size: 50,
+                                  color: Color.fromARGB(255, 24, 26, 120),
+                                )
+                              ],
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 10),
+                            child: Text(
+                              index == 0
+                                  ? "Pizza"
+                                  : index == 1
+                                      ? "Burger"
+                                      : index == 2
+                                          ? "Vegan"
+                                          : "Salad",
+                              style: TextStyle(fontSize: 16),
+                            ),
                           )
                         ],
                       ),
                     ),
-                    Container(
-                      margin: EdgeInsets.only(top: 10),
-                      child: Text("Pizza",style: TextStyle(
-                        fontSize: 16
-                      ),),
-                    )
-                  ],
+                  ),
                 ),
-                Column(
-                  children: [
-                    Container(
-                      width: 80,
-                      height: 80,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                      color: Color.fromARGB(255, 255, 255, 255),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color.fromARGB(255, 189, 186, 186),
-                            spreadRadius: 2,
-                            blurRadius: 7,
-                            offset: Offset(0, 1)
-                          )
-                        ]
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.fastfood_rounded,size: 50,color: Color.fromARGB(255, 24, 26, 120),)
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 10),
-                      child: Text("Burger",style: TextStyle(
-                        fontSize: 16
-                      ),),
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    Container(
-                      width: 80,
-                      height: 80,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                      color: Color.fromARGB(255, 255, 255, 255),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color.fromARGB(255, 189, 186, 186),
-                            spreadRadius: 2,
-                            blurRadius: 7,
-                            offset: Offset(0, 1)
-                          )
-                        ]
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.eco,size: 50,color: Color.fromARGB(255, 24, 26, 120),)
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 10),
-                      child: Text("Vegan",style: TextStyle(
-                        fontSize: 16
-                      ),),
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    Container(
-                      width: 80,
-                      height: 80,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                      color: Color.fromARGB(255, 255, 255, 255),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color.fromARGB(255, 189, 186, 186),
-                            spreadRadius: 2,
-                            blurRadius: 7,
-                            offset: Offset(0, 1)
-                          )
-                        ]
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.apple,size: 50,color: Color.fromARGB(255, 24, 26, 120),)
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 10),
-                      child: Text("Salad",style: TextStyle(
-                        fontSize: 16
-                      ),),
-                    )
-                  ],
-                ),
-              ],
+              ),
             ),
           ],
         ),
